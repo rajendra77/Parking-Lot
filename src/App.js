@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from './components/Form';
-
+import Table from './components/Table';
 
 class App extends Component {
 
@@ -10,7 +10,8 @@ class App extends Component {
     ready:false,
     readyForCarDetails:false,
     numberOfCars:'',
-   
+    readyToGenerateNumber:false
+    
    }
 
  
@@ -40,12 +41,17 @@ handleChangeCar = (event) =>{
  })
 }
 
+Proceed = () =>{
+  this.setState({
+    readyToGenerateNumber:true
+ })
+}
 
   render() {
     return (
       <div className="App">
-        <Form numberOfCars={this.state.numberOfCars} makeReadyForCarDetails={this.makeReadyForCarDetails} readyForCarDetails={this.state.readyForCarDetails} handleChangeCar={this.handleChangeCar} readyStatus={this.state.ready} checkReady ={this.checkReady} handleChange={this.handleChange} numberOfSpaces={this.state.numberOfSpaces}/>
-        
+        <Form Proceed={this.Proceed} numberOfCars={this.state.numberOfCars} makeReadyForCarDetails={this.makeReadyForCarDetails} readyForCarDetails={this.state.readyForCarDetails} handleChangeCar={this.handleChangeCar} readyStatus={this.state.ready} checkReady ={this.checkReady} handleChange={this.handleChange} numberOfSpaces={this.state.numberOfSpaces}/>
+        <Table  readyToGenerateNumber= {this.state.readyToGenerateNumber} numberOfCars={this.state.numberOfCars}/>
       </div>
     );
   }

@@ -23,7 +23,9 @@ class Form extends Component {
        <div>
            <h2>Enter Random Number of cars to fill parking </h2>
            <input type='text' name='noOfCars' value={this.props.numberOfCars} onChange={this.props.handleChangeCar}/>
-           <button onClick={this.props.fill}>Fill</button>
+           <br/>
+           <button onClick={this.props.Proceed}>Proceed</button>
+           <br/>
          
        </div>
        )
@@ -43,11 +45,9 @@ class Form extends Component {
                   <div>{this.checkStatus()}</div>
 
                   <div>{this.GenerateCarRandomly()}</div>
-
-           
+                       
         </div>
-       
-        
+             
     );
   }
 }
