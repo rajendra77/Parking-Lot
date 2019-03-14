@@ -5,7 +5,9 @@ class CarDetails extends Component{
 
     state={
       cars:[],
-      showData:false
+      showNewCar:false,
+      newCar:'',
+      checkNewCar:false,
     }
     
     addState=()=>{
@@ -15,13 +17,14 @@ class CarDetails extends Component{
             data.push(item)
         })
       this.setState({
-          cars:data
+          cars:data,
+          showNewCar:true
       })
     
     }
     deleteMethod = key =>{
         
-        this.state.cars.splice(key,1)
+        this.state.cars[key]=''
         this.setState({
             cars:this.state.cars
         })   
@@ -35,17 +38,50 @@ class CarDetails extends Component{
             
         }
     }
-    render(){
-        let row=this.state.cars.map((val,key) => {
-            return <RowData tableStatus={this.props.tableStatus} key={key} keyVal={key} val={val}
-                   deleteMethod={()=> this.deleteMethod(key)}/>
+    addNewcar=()=>{
+       var n=this.state.cars.length
+       var i=0
+       var data=[]
+       var flag=true
+       for(i=0;i<n;i++){
+           if(this.state.cars[i]=='' && flag===true){
+                   data.push(this.state.newCar)
+                   flag=false
+            }
+            else{
+               data.push(this.state.cars[i])
+            }
+            
+       }
+       this.setState({
+           cars:data,
+           checkNewCar:true,
+           newCar:''
+       })
+    }
+    handleNewCar=(event)=>{
+        this.setState({
+            newCar:event.target.value
         })
-        return(
-            <div>
+    }
+    newCar = () =>{
+        if(this.state.showNewCar===true){
+            return(
+                <div>
+                    <h2>Enter The Registration number and color of car to be parked</h2>
+                    <input type='text' value={this.state.newCar} onChange={this.handleNewCar}/>
+                    <button onClick={this.addNewcar}>Park Now</button>
+                </div>
+                
+            )
+        }
+        
+    }
 
-               {this.showData()}
-             <div>
-                <table>
+    MainTable=()=>{
+        if(this.props.tableStatus===true){
+            return(
+                
                   <thead>
                   <tr>
                       <th>Slot No</th>
@@ -54,9 +90,31 @@ class CarDetails extends Component{
                       <th>button</th>
                   </tr>
                   </thead>
-                   {row}     
-              </table>
-           </div>
+                     
+             
+                   
+            )
+        }
+    }
+    render(){
+        let row=this.state.cars.map((val,key) => {
+          
+            return <RowData  tableStatus={this.props.tableStatus} key={key} keyVal={key} val={val}
+                   deleteMethod={()=> this.deleteMethod(key)}/>
+        })
+        return(
+            <div>
+
+               {this.showData()}
+             <div>
+                <table>
+                    {this.MainTable()}
+                    {row}   
+                </table>
+              
+                {this.newCar()}
+               
+             </div>
    </div>
         )
     }

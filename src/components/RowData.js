@@ -4,10 +4,8 @@ import '../App.css';
 class RowData extends Component{
       
     showTable = () =>{
-        if(this.props.tableStatus===true){
+        if(this.props.tableStatus===true ){
          let number=this.props.val
-        
-
                  let data=number.split('-')
                  let data1=data.slice(0,4)
                  let RN=data1.join('-')

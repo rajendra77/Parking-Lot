@@ -33,16 +33,6 @@ class Table extends Component {
         })     
     }
 
-  /*  CarList = () =>{
-        const numbers = this.state.carDetails;
-        const listItems = numbers.map((number,index) =>
-          <li key={index}>{number}</li>
-        );
-        return (     
-          <ol>{listItems}</ol>
-        ); 
-      }
-      */
     generateRandomNumber = () =>{
         if(this.props.readyToGenerateNumber===true)
         return(
