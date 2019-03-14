@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import '../App.css';
 import RowData from './RowData'
+import GovernmentRule from './GovernmentRule'
 class CarDetails extends Component{
 
     state={
       cars:[],
-      showNewCar:false,
+      showCars:false,
       newCar:'',
       checkNewCar:false,
     }
@@ -13,15 +14,15 @@ class CarDetails extends Component{
     addState=()=>{
         var data=[]
         console.log(this.props.carDetails)
-       this.props.carDetails.map((item)=>{
+        this.props.carDetails.map((item)=>{
             data.push(item)
         })
-      this.setState({
+       this.setState({
           cars:data,
-          showNewCar:true
+          showCars:true
       })
-    
     }
+
     deleteMethod = key =>{
         
         this.state.cars[key]=''
@@ -38,6 +39,7 @@ class CarDetails extends Component{
             
         }
     }
+
     addNewcar=()=>{
        var n=this.state.cars.length
        var i=0
@@ -50,8 +52,11 @@ class CarDetails extends Component{
             }
             else{
                data.push(this.state.cars[i])
-            }
-            
+            }    
+       }
+       if(this.state.newCar!='' && flag==true){
+           data.push(this.state.newCar)
+           flag=false
        }
        this.setState({
            cars:data,
@@ -59,24 +64,29 @@ class CarDetails extends Component{
            newCar:''
        })
     }
+
+
     handleNewCar=(event)=>{
         this.setState({
             newCar:event.target.value
         })
     }
+
+
     newCar = () =>{
-        if(this.state.showNewCar===true){
+        if(this.state.showCars===true){
             return(
                 <div>
                     <h2>Enter The Registration number and color of car to be parked</h2>
                     <input type='text' value={this.state.newCar} onChange={this.handleNewCar}/>
                     <button onClick={this.addNewcar}>Park Now</button>
-                </div>
-                
+                    
+                </div>     
             )
         }
         
     }
+
 
     MainTable=()=>{
         if(this.props.tableStatus===true){
@@ -96,6 +106,8 @@ class CarDetails extends Component{
             )
         }
     }
+
+
     render(){
         let row=this.state.cars.map((val,key) => {
           
@@ -115,6 +127,7 @@ class CarDetails extends Component{
                 {this.newCar()}
                
              </div>
+             <GovernmentRule cars={this.state.cars} showCars={this.state.showCars}/>
    </div>
         )
     }

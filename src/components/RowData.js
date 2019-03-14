@@ -15,7 +15,7 @@ class RowData extends Component{
                           <td>{this.props.keyVal+1}</td>
                           <td>{RN}</td>
                           <td>{data[4]}</td>
-                          <td><button onClick={this.props.deleteMethod}>Delete</button></td>
+                          <td><button onClick={this.props.deleteMethod}>Remove Car</button></td>
                     </tr>
                  )
         }   

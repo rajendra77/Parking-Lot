@@ -8,8 +8,8 @@ class Form extends Component {
      {
       return (  
         <div>
-             <h1>Your Paking lot is Ready for {this.props.numberOfSpaces} Cars</h1>
-             <button onClick={this.props.makeReadyForCarDetails}>Proceed</button>
+             <h4>Your Paking lot is Ready for {this.props.numberOfSpaces} Cars</h4>
+             <button onClick={this.props.makeReadyForCarDetails}>Now Park Cars</button>
         </div>
         )
      }      
@@ -21,7 +21,7 @@ class Form extends Component {
     {
      return (  
        <div>
-           <h2>Enter Random Number of cars to fill parking </h2>
+           <h4>Enter Random Number of cars to fill parking </h4>
            <input type='text' name='noOfCars' value={this.props.numberOfCars} onChange={this.props.handleChangeCar}/>
            <br/>
            <button onClick={this.props.Proceed}>Proceed</button>
@@ -36,11 +36,12 @@ class Form extends Component {
   render() {
   
     return (
-        <div>
+        <div className='formContainer'>
                   <h2>Enter the no of parking spaces you want for your parking</h2>
            
-                  <input type='text' name='noOfSpace' value={this.props.numberOfSpaces} onChange={this.props.handleChange} />
-                  <button onClick={this.props.checkReady}>Create</button>
+                  <input type='number' name='noOfSpace' value={this.props.numberOfSpaces} onChange={this.props.handleChange} /><br/><br/>
+
+                  <button onClick={this.props.checkReady}>Create Parking Lot</button>
            
                   <div>{this.checkStatus()}</div>
 

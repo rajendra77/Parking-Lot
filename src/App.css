@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-bottom: 100px;
 }
 
 .App-logo {
@@ -32,13 +33,49 @@
   }
 }
 table, th, td {
-  margin-left:400px;
+ 
   border: 1px solid black;
   border-collapse: collapse;
-  width:50%;
+  width:40%;
+  margin-left:20px;
 }
 th, td {
   padding: 5px;
   text-align: left;
 }
 
+.heading {
+  text-align:center;
+}
+
+.formContainer{
+  text-align:center;
+}
+
+.tableData {
+  margin-left:20px;
+}
+.Black {
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  margin:10px;
+}
+.White {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  margin:10px;
+}
+.Blue {
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+  margin:10px;
+}
+.Red {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  margin:10px;
+}
