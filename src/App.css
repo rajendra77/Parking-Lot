@@ -31,7 +31,14 @@
     transform: rotate(360deg);
   }
 }
-
-.list {
-  margin-left: 100
+table, th, td {
+  margin-left:400px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  width:50%;
 }
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+

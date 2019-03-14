@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import '../App.css';
+import CarDetails from './CarDetails'
 class Table extends Component {
     
     state={
-        carDetails:[],   
+        carDetails:[],
+        tableStatus:false,   
     }
     
     carDetailsTable = () =>{
@@ -26,29 +28,27 @@ class Table extends Component {
           
         } 
         this.setState({
-            carDetails:arr
+            carDetails:arr,
+            tableStatus:true,
         })     
     }
 
-    CarList = () =>{
+  /*  CarList = () =>{
         const numbers = this.state.carDetails;
         const listItems = numbers.map((number,index) =>
           <li key={index}>{number}</li>
         );
         return (     
           <ol>{listItems}</ol>
-        );
-      
+        ); 
       }
-      
+      */
     generateRandomNumber = () =>{
         if(this.props.readyToGenerateNumber===true)
         return(
             <div>
                  <button onClick={this.carDetailsTable}>Generate Car Details</button>
-                  <div className='list'>
-                      {this.CarList()}
-                  </div>
+                 
             </div>       
         )
     }
@@ -57,7 +57,7 @@ class Table extends Component {
         return(
         <div>
           <div>{this.generateRandomNumber()}</div>
-          
+          <CarDetails tableStatus={this.state.tableStatus} carDetails={this.state.carDetails}/>
         </div>
         )
     }
