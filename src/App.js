@@ -14,7 +14,6 @@ class App extends Component {
     
    }
 
- 
   handleChange = (event) =>{
 
     this.setState({
@@ -42,6 +41,7 @@ handleChangeCar = (event) =>{
 }
 
 Proceed = () =>{
+  console.log('raj'+this.state.numberOfSpaces+'singh'+this.state.numberOfCars)
   this.setState({
     readyToGenerateNumber:true
  })
