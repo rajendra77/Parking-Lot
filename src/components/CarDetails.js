@@ -1,41 +1,49 @@
 import React, { Component } from 'react';
 import '../App.css';
+import RowData from './RowData'
 class CarDetails extends Component{
-  
-   showTable = () =>{
-       if(this.props.tableStatus===true){
-        let arr=this.props.carDetails
-        console.log('Hello ther'+arr)
-    
-            const listItems = arr.map((number,index) =>{
-                let data=number.split('-')
-                let data1=data.slice(0,4)
-                let RN=data1.join('-')
-                console.log(data)
-                console.log(RN)
-                return(
-                    <tr key={index}>
-                         <td>{index+1}</td>
-                         <td>{RN}</td>
-                         <td>{data[4]}</td>
-                   </tr>
-                )
-               
-            }     
-            );
-            return (     
-              <tbody>{listItems}</tbody>
-            ); 
-        
-       }
-    
-      
-   }
 
+    state={
+      cars:[],
+      showData:false
+    }
+    
+    addState=()=>{
+        var data=[]
+        console.log(this.props.carDetails)
+       this.props.carDetails.map((item)=>{
+            data.push(item)
+        })
+      this.setState({
+          cars:data
+      })
+    
+    }
+    deleteMethod = key =>{
+        
+        this.state.cars.splice(key,1)
+        this.setState({
+            cars:this.state.cars
+        })   
+    }
+
+    showData=()=>{
+        if(this.props.tableStatus===true){
+            return(
+                <button onClick={this.addState}>Show Data</button>
+            )
+            
+        }
+    }
     render(){
+        let row=this.state.cars.map((val,key) => {
+            return <RowData tableStatus={this.props.tableStatus} key={key} keyVal={key} val={val}
+                   deleteMethod={()=> this.deleteMethod(key)}/>
+        })
         return(
             <div>
-                <h2>Hello there</h2>
+
+               {this.showData()}
              <div>
                 <table>
                   <thead>
@@ -43,13 +51,10 @@ class CarDetails extends Component{
                       <th>Slot No</th>
                       <th>Registration number</th>
                       <th>Color of Car</th>
+                      <th>button</th>
                   </tr>
                   </thead>
-                  
-                  
-                     {this.showTable()}
-                  
-                 
+                   {row}     
               </table>
            </div>
    </div>

@@ -20,7 +20,7 @@ class Table extends Component {
                arr.push(
                     alphabets.charAt(Math.floor(Math.random()*alphabets.length))+
                     alphabets.charAt(Math.floor(Math.random()*alphabets.length))+"-"+
-                    Math.floor(Math.random()*100)+"-"+alphabets.charAt(Math.floor(Math.random()*alphabets.length))+"-"+
+                    Math.floor(Math.random()*100)+"-"+
                     alphabets.charAt(Math.floor(Math.random()*alphabets.length))+
                     alphabets.charAt(Math.floor(Math.random()*alphabets.length))+"-"+
                     Math.floor(Math.random()*10000)+"-"+
@@ -52,12 +52,13 @@ class Table extends Component {
             </div>       
         )
     }
+
     render(){
      
         return(
         <div>
           <div>{this.generateRandomNumber()}</div>
-          <CarDetails tableStatus={this.state.tableStatus} carDetails={this.state.carDetails}/>
+          <CarDetails tableStatus={this.state.tableStatus} carDetails={this.state.carDetails} deleteMethod={this.deleteMethod}/>
         </div>
         )
     }
