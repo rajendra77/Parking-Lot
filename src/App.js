@@ -41,18 +41,18 @@ handleChangeCar = (event) =>{
 }
 
 Proceed = () =>{
-  console.log('raj'+this.state.numberOfSpaces+'singh'+this.state.numberOfCars)
-  this.setState({
-    readyToGenerateNumber:true
- })
+  
+    this.setState({
+      readyToGenerateNumber:true
+   })
+  
+ 
 }
 
   render() {
     return (
       <div >
-        <div className="heading">
-           <h1>PARKING LOT</h1>
-        </div>
+        
         <div className="App">
            <Form Proceed={this.Proceed} numberOfCars={this.state.numberOfCars} makeReadyForCarDetails={this.makeReadyForCarDetails} readyForCarDetails={this.state.readyForCarDetails} handleChangeCar={this.handleChangeCar} readyStatus={this.state.ready} checkReady ={this.checkReady} handleChange={this.handleChange} numberOfSpaces={this.state.numberOfSpaces}/>
            <Table  readyToGenerateNumber= {this.state.readyToGenerateNumber} numberOfCars={this.state.numberOfCars}/>

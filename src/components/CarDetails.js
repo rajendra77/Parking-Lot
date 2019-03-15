@@ -34,7 +34,7 @@ class CarDetails extends Component{
     showData=()=>{
         if(this.props.tableStatus===true){
             return(
-                <button onClick={this.addState}>Show Data</button>
+                <button className='button1' onClick={this.addState}>Show Data</button>
             )
             
         }
@@ -76,10 +76,10 @@ class CarDetails extends Component{
     newCar = () =>{
         if(this.state.showCars===true){
             return(
-                <div>
-                    <h2>Enter The Registration number and color of car to be parked</h2>
-                    <input type='text' value={this.state.newCar} onChange={this.handleNewCar}/>
-                    <button onClick={this.addNewcar}>Park Now</button>
+                <div className='details'>
+                    <h2>Park New Car</h2>
+                    <input placeholder='Ex. RP-12-AM-8356-Red' type='text' value={this.state.newCar} onChange={this.handleNewCar}/>
+                    <button className='button' onClick={this.addNewcar}>Park Now</button>
                     
                 </div>     
             )
@@ -115,10 +115,10 @@ class CarDetails extends Component{
                    deleteMethod={()=> this.deleteMethod(key)}/>
         })
         return(
-            <div>
+            <div className='mainTable'>
 
-               {this.showData()}
-             <div>
+               <div>{this.showData()}</div>
+             <div className='govRule'>
                 <table>
                     {this.MainTable()}
                     {row}   

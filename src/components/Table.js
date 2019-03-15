@@ -36,8 +36,8 @@ class Table extends Component {
     generateRandomNumber = () =>{
         if(this.props.readyToGenerateNumber===true)
         return(
-            <div>
-                 <button onClick={this.carDetailsTable}>Generate Car Details</button>
+            <div >
+                 <button  className='button1' onClick={this.carDetailsTable}>Generate Car Details</button>
                  
             </div>       
         )
@@ -46,7 +46,7 @@ class Table extends Component {
     render(){
      
         return(
-        <div>
+        <div className='tableData'>
           <div>{this.generateRandomNumber()}</div>
           <CarDetails tableStatus={this.state.tableStatus} carDetails={this.state.carDetails} deleteMethod={this.deleteMethod}/>
         </div>

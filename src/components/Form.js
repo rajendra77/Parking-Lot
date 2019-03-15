@@ -9,7 +9,7 @@ class Form extends Component {
       return (  
         <div>
              <h4>Your Paking lot is Ready for {this.props.numberOfSpaces} Cars</h4>
-             <button onClick={this.props.makeReadyForCarDetails}>Now Park Cars</button>
+             <button className='button' onClick={this.props.makeReadyForCarDetails}>Now Park Cars</button>
         </div>
         )
      }      
@@ -22,15 +22,18 @@ class Form extends Component {
      return (  
        <div>
            <h4>Enter Random Number of cars to fill parking </h4>
-           <input type='text' name='noOfCars' value={this.props.numberOfCars} onChange={this.props.handleChangeCar}/>
+           <input type='number' name='noOfCars' value={this.props.numberOfCars} onChange={this.props.handleChangeCar}/>
            <br/>
-           <button onClick={this.props.Proceed}>Proceed</button>
+           <button className='button'onClick={this.props.Proceed}>Proceed</button>
+           
            <br/>
          
        </div>
        )
     }      
  }
+
+ 
   
 
   render() {
@@ -39,9 +42,9 @@ class Form extends Component {
         <div className='formContainer'>
                   <h2>Enter the no of parking spaces you want for your parking</h2>
            
-                  <input type='number' name='noOfSpace' value={this.props.numberOfSpaces} onChange={this.props.handleChange} /><br/><br/>
+                  <input type='number' name='noOfSpace' value={this.props.numberOfSpaces} onChange={this.props.handleChange} /> <br/>
 
-                  <button onClick={this.props.checkReady}>Create Parking Lot</button>
+                  <button className='button1' onClick={this.props.checkReady}>Create Parking Lot</button>
            
                   <div>{this.checkStatus()}</div>
 
